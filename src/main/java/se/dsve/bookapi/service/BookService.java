@@ -19,25 +19,30 @@ public class BookService {
 
     public Book createBook(Book book) {
         // TODO: Write your code here
-        return null;
+        return bookRepository.save(book);
     }
 
     public Optional<Book> getBookById(String id) {
         // TODO: Write your code here
-        return null;
+        return bookRepository.findById(id);
     }
 
     public Iterable<Book> getAllBooks() {
         // TODO: Write your code here
-        return null;
+        return bookRepository.findAll();
     }
 
     public Book updateBook(Book book) {
         // TODO: Write your code here
-        return null;
+        if (bookRepository.existsById(book.getId())) {
+            return bookRepository.save(book);
+        }else {
+            return bookRepository.save(book);
+        }
     }
 
     public void deleteBook(String id) {
         // TODO: Write your code here
+        bookRepository.deleteById(id);
     }
 }

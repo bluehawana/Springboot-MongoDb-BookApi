@@ -37,11 +37,11 @@ public class BookController {
     @GetMapping
     public ResponseEntity<List<BookDTO>> getAllBooks() {
         // TODO: Write your code here, return status 200 if successf
-        List<Book> books = new ArrayList<>();
+        List<Book> books = (List<Book>) bookService.getAllBooks();
         List<BookDTO> bookDTOs = books.stream()
                 .map(BookDTO::new)
                 .collect(Collectors.toList());
-        return new ResponseEntity<>(bookDTOs, HttpStatus.OK);
+        return ResponseEntity.ok(bookDTOs);
     }
 
 
