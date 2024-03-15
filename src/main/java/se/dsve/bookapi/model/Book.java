@@ -9,6 +9,14 @@ public class Book {
     private String author;
     private String genre;
 
+    public Book(String id, String title, String author, String genre) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+    }
+
+
     // Standard getters and setters
     public String getId() {
         return id;
