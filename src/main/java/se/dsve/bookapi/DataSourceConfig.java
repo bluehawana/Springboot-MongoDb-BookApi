@@ -31,18 +31,6 @@ public class DataSourceConfig {
         return new MongoTemplate(mongoClient(), dotenv.get("DB_NAME"));
     }
 
-    @Bean
-    public BookRepository seedData(BookRepository bookRepository) {
-        List<Book> books = Arrays.asList(
-                new Book("1", "The Hobbit", "J.R.R. Tolkien", "Fantasy"),
-                new Book("2", "The Fellowship of the Ring", "J.R.R. Tolkien", "Fantasy"),
-                new Book("3", "The Two Towers", "J.R.R. Tolkien", "Fantasy"),
-                new Book("4", "The Return of the King", "J.R.R. Tolkien", "Fantasy")
-        );
-
-        bookRepository.saveAll(books);
-        return bookRepository;
-    }
 }
 
 
