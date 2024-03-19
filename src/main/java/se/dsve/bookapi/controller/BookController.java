@@ -55,8 +55,12 @@ public class BookController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable String id) {
         // TODO: Write your code here, return status 200 if successful
-        bookService.deleteBook(id);
+        if (bookService.getBookById(id).isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        else
+        {bookService.deleteBook(id);
         return ResponseEntity.ok().build();
-    }
+    }}
 
 }
